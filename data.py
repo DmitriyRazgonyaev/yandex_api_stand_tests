@@ -1,13 +1,19 @@
-headers = {
+headers_user = {
     "Content-Type": "application/json"
 }
 
 user_body = {
-    "firstName": "Aa",
+    "firstName": "Дмитрий",
     "phone": "+79995553322",
     "address": "г. Москва, ул. Пушкина, д. 10"
 }
 
-product_ids = {
-    "ids": [1, 2, 3]
+
+headers_kits = {
+    "Content-Type": "application/json",
+    "Authorization": "Bearer jknnFApafP4awfAIFfafam2fma"
+}
+
+kit_body = {
+       "name": "Мой набор"
 }
