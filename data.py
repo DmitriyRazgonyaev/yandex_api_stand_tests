@@ -8,12 +8,4 @@ user_body = {
     "address": "г. Москва, ул. Пушкина, д. 10"
 }
 
-
-headers_kits = {
-    "Content-Type": "application/json",
-    "Authorization": "Bearer jknnFApafP4awfAIFfafam2fma"
-}
-
-kit_body = {
-       "name": "Мой набор"
-}
+AUTH_TOKEN = ""

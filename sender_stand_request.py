@@ -1,41 +1,22 @@
 import configuration
 import requests
 import data
-def post_new_user(body):
+
+
+def post_new_user():
     return requests.post(configuration.URL_SERVICE + configuration.CREATE_USER_PATH,
-                         json=body,
+                         json=data.user_body,
                          headers=data.headers_user)
 
-response = post_new_user(data.user_body);
-print(response.status_code)
-print(response.json())
+
 def post_new_client_kit(body):
-    return requests.post(configuration.URL_SERVICE + configuration.Main_Kits,
+    if data.AUTH_TOKEN == "":
+        response = post_new_user()
+        data.AUTH_TOKEN = response.json()['authToken']
+    headers_kits = {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + data.AUTH_TOKEN
+    }
+    return requests.post(configuration.URL_SERVICE + configuration.MAIN_KITS,
                          json=body,
-                         headers=data.headers_kits)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                         headers=headers_kits)
